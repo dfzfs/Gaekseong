@@ -1,0 +1,13 @@
+{
+    "display_name": "객성록 HUD (Gaekseong)",
+    "loading_order": 20,
+    "requires": [],
+    "optional": [],
+    "dependencies": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "객성록 제작자",
+    "version": "1.0.0",
+    "homePage": "https://github.com/YOUR-ID/ST-Gaekseong",
+    "auto_update": true
+}
