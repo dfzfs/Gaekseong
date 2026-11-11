@@ -7,7 +7,7 @@
     "js": "index.js",
     "css": "style.css",
     "author": "객성록 제작자",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "homePage": "https://github.com/YOUR-ID/ST-Gaekseong",
     "auto_update": true
 }

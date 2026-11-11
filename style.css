@@ -548,3 +548,58 @@ body.gs-dying #gs-hud { animation: gs-heartbeat 1.2s ease-in-out infinite; }
     .gs-seg-sm button small { display: none; }
     .gs-dice { width: 104px; height: 104px; }
 }
+
+/* ───────── 테마 독립 (라이트 테마에서도 읽히도록 모든 요소가 자기 배경을 가짐) ───────── */
+.gs-pop {
+    background: linear-gradient(180deg, #1b171e, #110f13);
+    color: #e9dfc9;
+    padding: 16px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(201, 162, 75, .22);
+    text-align: left;
+}
+.gs-pop h3, .gs-pop h4, .gs-pop p, .gs-pop li, .gs-pop dd, .gs-pop label, .gs-pop summary, .gs-pop b, .gs-pop small { text-shadow: none; }
+.gs-pop label { color: #b8ad97; }
+.gs-pop .text_pole, .gs-pop input.text_pole, .gs-pop select.text_pole, .gs-pop textarea.text_pole {
+    background: #0e0c10 !important;
+    color: #f0e6cf !important;
+    border: 1px solid rgba(233, 223, 201, .22) !important;
+    -webkit-text-fill-color: #f0e6cf;
+}
+.gs-pop .text_pole::placeholder { color: #7d7466 !important; -webkit-text-fill-color: #7d7466; opacity: 1; }
+.gs-pop select.text_pole option { background: #1b171e; color: #f0e6cf; }
+.gs-pop button { font-family: inherit; }
+.gs-pop .gs-btn { color: #e9dfc9; }
+.gs-pop .gs-btn-red { color: #fff3e6; }
+.gs-pop .gs-seg button, .gs-pop .gs-tabs button, .gs-pop .gs-mini button, .gs-pop .gs-x { color: #e9dfc9; }
+.gs-pop .gs-tabs button { color: #b8ad97; }
+.gs-pop .gs-tabs button.on { color: #f0e6cf; }
+.gs-pop .gs-ccard { background: #1c1820; }
+.gs-pop .gs-ccard:has(input:checked) { background: #3a1712; }
+.gs-pop .gs-item, .gs-pop .gs-pact, .gs-pop .gs-mods, .gs-pop .gs-dist { background: #1c1820; }
+
+/* 메시지 속 요소: 반투명 대신 불투명 */
+.gs-card { background: #17131a; }
+.gs-choice { background: #1c1820; color: #e9dfc9; border-color: rgba(233, 223, 201, .2); }
+.gs-choice:hover { background: #2c1a18; }
+.gs-choice.gs-odd { background: linear-gradient(90deg, #2b1a46, #2a1418); color: #e3d6ff; }
+.gs-stale .gs-choice { opacity: .5; }
+.gs-tag, .custom-gs-tag { background: #1c1820; color: #e6c983; }
+.gs-tag[data-kind="crit"], .custom-gs-tag[data-kind="crit"] { background: #3a2e12; }
+.gs-tag[data-kind="ok"], .custom-gs-tag[data-kind="ok"] { background: #12302c; }
+.gs-tag[data-kind="fail"], .custom-gs-tag[data-kind="fail"] { background: #3a1712; }
+.gs-tag[data-kind="power"], .custom-gs-tag[data-kind="power"] { background: #2b1a46; }
+.gs-tag[data-kind="case"], .custom-gs-tag[data-kind="case"] { background: #2a2620; }
+.gs-hallu, .custom-gs-hallu { color: #8a5cf0; text-shadow: 1px 0 rgba(255, 50, 50, .35), -1px 0 rgba(50, 160, 255, .35); }
+.gs-z4 { color: #8a5cf0; }
+.gs-z1 { color: #e2452c; }
+
+/* 모바일: 팝업 여백 축소 */
+@media (max-width: 600px) {
+    .gs-pop { padding: 12px 10px; border-radius: 10px; }
+    .gs-tabs button { padding: 6px 8px; font-size: .86em; }
+    .gs-acts { gap: 2px; }
+    #gs-hud .gs-ico { width: 28px; height: 28px; font-size: .9em; }
+    .gs-mode { padding: 1px 5px; letter-spacing: .05em; }
+    .gs-job-foot { flex-wrap: wrap; }
+}
