@@ -110,6 +110,7 @@
 }
 .gs-taboo i { width: 8px; height: 8px; border-radius: 50%; background: var(--gs-paper-dim); }
 .gs-taboo small { color: var(--gs-paper-dim); }
+.gs-taboo em { font-style: normal; font-size: .9em; color: var(--gs-gold); font-family: var(--gs-serif); }
 .gs-taboo-pending i { background: var(--gs-gold); animation: gs-blink 1.4s steps(2) infinite; }
 .gs-taboo-pending { border-color: rgba(201, 162, 75, .5); }
 .gs-taboo-kept i { background: #7fd1b9; }
@@ -403,6 +404,105 @@
 .gs-settings label { display: flex; flex-direction: column; gap: 2px; margin: 6px 0; }
 .gs-settings label.checkbox_label { flex-direction: row; align-items: center; gap: 6px; }
 .gs-set-btns { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+
+/* ───────── 소지품 · 상점 ───────── */
+.gs-chip-item { border-color: rgba(201, 162, 75, .35); color: #e6d3a3; }
+.gs-shop { display: grid; gap: 5px; }
+.gs-shop .gs-item { grid-template-columns: auto 1fr auto; }
+.gs-shop .gs-btn-sm { margin-left: 0; min-width: 84px; font-variant-numeric: tabular-nums; }
+
+/* ───────── 의뢰 게시판 ───────── */
+.gs-board { display: grid; gap: 10px; margin: 10px 0; }
+.gs-job {
+    position: relative; padding: 12px 14px 10px; border-radius: 4px;
+    background: linear-gradient(180deg, #e7dcc2, #d8c9a6); color: #2a2018;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .45);
+    transform: rotate(-.4deg);
+}
+.gs-job:nth-child(2) { transform: rotate(.5deg); }
+.gs-job:nth-child(3) { transform: rotate(-.2deg); }
+.gs-job[data-src="흑첨"] { background: linear-gradient(180deg, #2a2428, #17131a); color: #e9dfc9; border: 1px solid #444; }
+.gs-job[data-src="사천감"] { background: linear-gradient(180deg, #f0f0ec, #d9dbd6); }
+.gs-job[data-src="만신회"] { background: linear-gradient(180deg, #e6c96f, #c9a24b); }
+.gs-job::before { /* 압정 */
+    content: ''; position: absolute; top: -5px; left: 50%; width: 10px; height: 10px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ff7a63, #8f2014); box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+}
+.gs-job-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.gs-job-head b { font-family: var(--gs-serif); font-size: 1.05em; flex: 1; }
+.gs-job-src { font-size: .75em; font-weight: 800; letter-spacing: .1em; padding: 1px 6px; border: 1px solid currentColor; border-radius: 3px; }
+.gs-job-grade { color: #a3271a; letter-spacing: .05em; font-size: .85em; }
+.gs-job[data-src="흑첨"] .gs-job-grade { color: #ff7a63; }
+.gs-job p { margin: 6px 0 8px; font-size: .9em; line-height: 1.5; }
+.gs-job-foot { display: flex; align-items: center; gap: 12px; font-size: .82em; }
+.gs-job-foot .gs-btn { margin-left: auto; }
+
+/* ───────── 객성의 속삭임 ───────── */
+.gs-whisper {
+    margin-top: 8px; padding: 6px 10px; border-radius: 8px;
+    background: linear-gradient(90deg, rgba(90, 40, 160, .28), rgba(20, 16, 24, 0));
+    border-left: 2px solid #a98bff;
+    display: flex; gap: 8px; align-items: baseline;
+    font-family: var(--gs-serif); font-style: italic; color: #e3d6ff;
+    animation: gs-whisper-in 1.4s ease-out;
+    transition: opacity 1.4s, filter 1.4s;
+}
+.gs-whisper small { font-style: normal; color: #a98bff; font-size: .75em; white-space: nowrap; }
+.gs-whisper.gs-out { opacity: 0; filter: blur(3px); }
+@keyframes gs-whisper-in { from { opacity: 0; filter: blur(4px); letter-spacing: .3em; } to { opacity: 1; filter: none; letter-spacing: normal; } }
+.gs-tag[data-kind="case"], .custom-gs-tag[data-kind="case"] { background: rgba(233, 223, 201, .12); border-color: #b8ad97; color: #f0e6cf; }
+
+/* ───────── 안내 · 지도 · 관계도 ───────── */
+.gs-ico-q { font-family: var(--gs-serif); font-weight: 800; font-size: 1em; color: var(--gs-gold); }
+.gs-click { cursor: pointer; }
+.gs-click:hover { color: #fff; }
+.gs-help { margin: 8px 0; padding: 8px 12px; border-radius: 8px; background: rgba(201,162,75,.07); border: 1px dashed rgba(201,162,75,.35); }
+.gs-help summary { cursor: pointer; color: var(--gs-gold); font-weight: 700; }
+.gs-help ol, .gs-guide ol, .gs-guide ul { padding-left: 20px; margin: 6px 0; }
+.gs-guide li { margin: 4px 0; }
+.gs-tabs-guide { margin-top: 4px; }
+.gs-dl dt { margin-top: 8px; color: var(--gs-gold); font-family: var(--gs-serif); font-weight: 700; }
+.gs-dl dd { margin: 2px 0 0 0; font-size: .92em; }
+
+.gs-map { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(88px, auto); gap: 8px; width: 100%; max-width: 440px; margin: 4px auto 10px; }
+.gs-map-void { border-radius: 8px; }
+.gs-map-river { display: flex; align-items: flex-start; justify-content: center; padding-top: 6px; font-size: .75em; color: #5aa7e0; opacity: .6;
+    background: linear-gradient(180deg, rgba(90,167,224,.16), transparent); font-family: var(--gs-serif); }
+.gs-map-cell {
+    position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+    border-radius: 8px; cursor: pointer; color: var(--gs-paper);
+    background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--c) 22%, transparent), rgba(18,16,20,.9) 75%);
+    border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+    transition: transform .15s, box-shadow .15s;
+}
+.gs-map-cell:hover, .gs-map-cell.sel { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--c), 0 6px 18px rgba(0,0,0,.4); }
+.gs-map-cell em { font-style: normal; font-size: 1.5em; font-weight: 900; color: var(--c); font-family: var(--gs-serif); line-height: 1; }
+.gs-map-cell b { font-family: var(--gs-serif); font-size: .95em; }
+.gs-map-cell small { font-size: .7em; color: var(--gs-paper-dim); }
+.gs-map-cell.here { box-shadow: 0 0 0 2px var(--gs-red-hi), 0 0 18px rgba(255,90,60,.35); }
+.gs-pin { position: absolute; top: 5px; left: 7px; font-style: normal; font-size: .62em; color: var(--gs-red-hi); animation: gs-blink 1.4s steps(2) infinite; }
+.gs-map-info { min-height: 60px; }
+.gs-dist { padding: 10px 12px; border-radius: 8px; background: rgba(233,223,201,.04); border-left: 3px solid var(--c); }
+.gs-dist-head { display: flex; align-items: baseline; gap: 8px; }
+.gs-dist-head em { font-style: normal; font-size: 1.3em; font-weight: 900; color: var(--c); font-family: var(--gs-serif); }
+.gs-dist-head b { font-family: var(--gs-serif); font-size: 1.05em; }
+.gs-dist-head small { color: var(--gs-paper-dim); }
+.gs-dist p { margin: 4px 0; font-size: .88em; }
+.gs-dist p span { display: inline-block; min-width: 2.6em; margin-right: 4px; color: var(--gs-gold); font-family: var(--gs-serif); font-weight: 700; }
+.gs-dist .gs-btn-sm { margin: 6px 0 0; }
+
+.gs-web { position: relative; width: 100%; max-width: 380px; justify-self: center; aspect-ratio: 1; margin: 6px auto;
+    background: radial-gradient(circle, rgba(123,92,201,.10), transparent 30%), radial-gradient(circle, transparent 40%, rgba(233,223,201,.04) 41%, transparent 42%), radial-gradient(circle, transparent 81%, rgba(233,223,201,.05) 82%, transparent 83%); }
+.gs-web-line { position: absolute; left: 50%; top: 50%; height: 0; border-top: 2px solid; transform-origin: 0 0; }
+.gs-web-node { position: absolute; transform: translate(-50%, -50%); text-align: center; padding: 4px 8px; border-radius: 8px; max-width: 34%;
+    background: rgba(18,16,20,.92); border: 1px solid var(--t, var(--gs-line)); line-height: 1.2; }
+.gs-web-node b { display: block; font-size: .8em; font-family: var(--gs-serif); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gs-web-node small { font-size: .66em; color: var(--t, var(--gs-paper-dim)); }
+.gs-web-star { border-style: dashed; }
+.gs-web-me { padding: 8px 12px; border-radius: 6px; border: none; color: #fff3e6;
+    background: radial-gradient(circle at 35% 30%, #d8462e, #7d1a10); box-shadow: 0 0 0 2px rgba(255,240,220,.2), 0 0 24px rgba(200,50,30,.45); }
+.gs-web-me small { color: #ffd9cc; }
 
 /* ───────── 이성 · 오염 연출 ───────── */
 body.gs-san-1 #gs-hud .gs-bar-san b { animation: gs-blink 3s steps(2) infinite; }
